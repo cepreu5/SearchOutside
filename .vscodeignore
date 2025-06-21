@@ -1,0 +1,16 @@
+# Node modules
+node_modules
+
+# Source maps и TypeScript
+*.map
+src/**
+tsconfig.json
+
+# Git и редакторски файлове
+.git/**
+.vscode/**
+*.log
+
+# Икони и други активи (ако не са нужни в разширението)
+icon-alt.*
+assets/
