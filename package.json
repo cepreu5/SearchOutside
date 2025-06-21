@@ -1,0 +1,10 @@
+"contributes": {
+  "commands": [
+    {
+      "command": "smart-find.nextOutsideComment",
+      "title": "Smart Find: Next Match Outside Comments",
+      "category": "Smart Find",
+      "icon": "icon.png"
+    }
+  ]
+}
