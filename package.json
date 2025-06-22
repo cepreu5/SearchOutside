@@ -1,10 +1,36 @@
-"contributes": {
-  "commands": [
-    {
-      "command": "smart-find.nextOutsideComment",
-      "title": "Smart Find: Next Match Outside Comments",
-      "category": "Smart Find",
-      "icon": "icon.png"
-    }
-  ]
+{
+  "name": "smart-find-outside-comments",
+  "displayName": "Smart Find Outside Comments",
+  "description": "Find the next occurrence of a term, excluding block (/* ... */) and line (//) comments. Keeps folded comments collapsed.",
+  "version": "0.0.1",
+  "publisher": "CX",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "icon.png",
+  "activationEvents": [
+    "onCommand:smart-find.OutsideComment"
+  ],
+  "main": "./extension.ts",
+  "scripts": {
+    "vscode:prepublish": "tsc -p ./",
+    "compile": "tsc -watch -p ./",
+    "start": "ts-node extension.ts"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "smart-find.OutsideComment",
+        "title": "Smart Find: Next Match Outside Comments"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.70.0",
+    "typescript": "^4.9.5",
+    "vscode": "^1.1.37"
+  }
 }

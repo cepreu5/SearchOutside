@@ -33,7 +33,7 @@ function findNextMatch(text: string, term: string): number | null {
 }
 
 export function activate(context: vscode.ExtensionContext) {
-    const disposable = vscode.commands.registerCommand('smart-find.nextOutsideComment', async () => {
+    const disposable = vscode.commands.registerCommand('smart-find.OutsideComment', async () => {
         const editor = vscode.window.activeTextEditor;
         if (!editor) return;
 
@@ -41,7 +41,7 @@ export function activate(context: vscode.ExtensionContext) {
         const text = document.getText();
 
         const term = await vscode.window.showInputBox({
-            prompt: 'Търси термин извън коментари (/* */ и //)',
+            prompt: 'Search outside comments',
             value: lastSearchTerm
         });
 
@@ -53,9 +53,9 @@ export function activate(context: vscode.ExtensionContext) {
             const pos = new vscode.Position(line, 0);
             editor.selection = new vscode.Selection(pos, pos);
             editor.revealRange(new vscode.Range(pos, pos), vscode.TextEditorRevealType.InCenter);
-            vscode.window.setStatusBarMessage(`✔️ Ред ${line + 1}: ${term}`, 2500);
+            vscode.window.setStatusBarMessage(`✔️ Row ${line + 1}: ${term}`, 2500);
         } else {
-            vscode.window.showInformationMessage('❌ Няма други съвпадения извън коментари.');
+            vscode.window.showInformationMessage('❌ No more matches found.');
         }
     });
 
